@@ -1,7 +1,6 @@
 import React from 'react'
 import TagList from './TagList'
 import { 
-    Flex,
     Input,
     Textarea,
     Box,

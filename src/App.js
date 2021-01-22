@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 
-import CreatePostContainer from './components/Body/CreatePostContainer';
+import ProfileContainer from "./components/ProfileComponents/ProfileContainer"
 import Navbar from './components/Navbar/Navbar';
 
 
@@ -16,7 +16,7 @@ function App() {
         <Grid minH="40vh" p={3}>
         <ColorModeSwitcher justifySelf="flex-end" />
           <Navbar />
-          <CreatePostContainer />
+          <ProfileContainer />
         </Grid>
     </ChakraProvider>
   );
