@@ -12,7 +12,16 @@ import {
 } from "@chakra-ui/react";
 
 
+
 export default function CreatePostContainer() {
+
+    // do your fetch request here 
+    // I will need state management for anything that's getting submitted
+    
+    // let [title, setTitle] = useState("")
+    // let [content, setContent] = useState("")
+    // let [tags, setTags] = useState([])
+
     return (
     <Box align="center" max>
         <Heading m="2%"> New Post </Heading>
@@ -25,6 +34,9 @@ export default function CreatePostContainer() {
                     placeholder="Title" 
                     w="80%" 
                     variant="filled" 
+                    onChange={(event) =>
+                        this.setState({title: event.target.value})
+                    }
                 />
                 <Textarea 
                     align="center" 

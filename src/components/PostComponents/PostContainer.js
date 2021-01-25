@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react"
 
 export default function PostContainer() {
+
     return (
         <Grid m="3%" border="1px" borderColor="gray.300"  borderRadius="0.95em" >
             <Text margin="1%" fontSize="xs"> Posted by: JamesB72 </Text>

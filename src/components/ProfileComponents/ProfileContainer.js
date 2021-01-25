@@ -25,9 +25,6 @@ export default function ProfileContainer() {
             >
                 <Profile />
                 <AllPostsComponent />
-            
-                    
-            
             </Grid>
         </Box>
     )
