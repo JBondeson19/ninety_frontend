@@ -2,6 +2,8 @@ import {
   ColorModeScript,
   theme,
    } from '@chakra-ui/react';
+
+import {BrowserRouter} from "react-router-dom";
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -10,12 +12,14 @@ import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
-  <StrictMode>
-    <ColorModeScript  
-      initialColorMode={theme.config.initialColorMode}
-    />
-    <App />
-  </StrictMode>,
+  <BrowserRouter>
+    <StrictMode>
+      <ColorModeScript  
+        initialColorMode={theme.config.initialColorMode}
+      />
+      <App />
+    </StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

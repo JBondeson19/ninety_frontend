@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import { 
     Flex, 
     Heading, 
@@ -33,12 +34,12 @@ const Navbar = (props) => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1.5rem"
+      padding="1rem"
       {...props}
     >
       <Flex align="center" mr={5}>
         <Heading p="5px">"</Heading>
-        <Heading as="h2" size="2xl" isTruncatedletterSpacing={"-.1rem"} as="u">
+        <Heading as="h2" size="2xl" as="u">
           90
         </Heading>
       </Flex>
@@ -60,9 +61,21 @@ const Navbar = (props) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
         >
-        <MenuItems><RiHome2Line/></MenuItems>
+  
+          <MenuItems>
+            <Link to="/home">
+              <RiHome2Line/>
+            </Link>
+          </MenuItems>
+        
         <MenuItems><BsFillPersonFill /></MenuItems>
-        <MenuItems><ImFileText2 /></MenuItems>
+
+        <MenuItems>
+          <Link to="/post">
+            <ImFileText2 />
+          </Link>
+        </MenuItems>
+        
         <MenuItems><BsPeopleFill /></MenuItems>
         <MenuItems><MdMailOutline /></MenuItems>
         </Stack>
@@ -81,7 +94,7 @@ const Navbar = (props) => {
 
       
       </Box>
-      <Divider colorScheme="blue" />
+      <Divider />
     </Flex>
   );
 }
