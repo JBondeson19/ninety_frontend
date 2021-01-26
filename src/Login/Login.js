@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+
 import {
     Flex,
     FormControl,
@@ -6,34 +7,84 @@ import {
     Center,
     Box,
     Button,
-    Stack,
     Heading
 } from "@chakra-ui/react"
 
-export default function Login() {
+class Login extends Component {
+
+       state = {
+        username: "",
+        email: "",
+        password: ""
+    }
+
+    handleOnSubmit = (event) => {
+        event.preventDefault()
+
+        let user = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        }
+        let reqObj = {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({user})
+        }
+
+        fetch('http://localhost:3000/login', reqObj)
+        .then(res => res.json()).then(userData => {
+            localStorage.setItem("isLoggedIn", true)
+            this.props.logIn(userData)
+            }
+        )
+    }
+
 
     
-    return (
-        <Box>
-        <Center>
-            <Heading>
-                Login
-            </Heading>
-        </Center>
+    // redirect = () => {
+    //   this.props.history.push('/home')
+    // }
 
-        <Center>
-            <Flex direction="column" width="50vh" height="30vh" m="2%">
-                <FormControl id="email" m="2%">
-                    <Input placeholder="Email address" type="email" />
-                </FormControl>
-                <FormControl m="2%">
-                    <Input placeholder="password" type="email" />
-                </FormControl>
-                <Center>
-                    <Button> Submit </Button>
-                </Center>
-            </Flex>
-        </Center>
+
+    
+    
+    render() {
+        return (
+        <Box>
+            <Center>
+                <Heading>
+                    Login
+                </Heading>
+            </Center>
+           
+
+            <Center>
+                <Flex direction="column" width="50vh" height="30vh" m="2%">
+                <form  onSubmit={(event) => this.handleOnSubmit(event)} >
+                    <FormControl id="email" m="2%">
+                        <Input 
+                            placeholder="Email address" 
+                            type="email" 
+                            onChange = {(event) => this.setState({ email: event.target.value }) }
+                        />
+                    </FormControl>
+                    <FormControl m="2%">
+                        <Input 
+                            placeholder="password" 
+                            type="password"
+                            onChange = {(event) => this.setState({ password: event.target.value }) }    
+                        />
+                    </FormControl>
+                    <Center>
+                        <Button placeholder="submit" type="submit"> Submit </Button>
+                    </Center>
+                </form>
+                </Flex>
+            </Center>
         </Box>
-    )
+        )
+    }
 }
+
+export default Login

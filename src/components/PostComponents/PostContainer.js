@@ -1,7 +1,6 @@
 import React from 'react'
 import { 
     Box,
-    Grid,
     Container,
     Center,
     Stack,
@@ -10,9 +9,8 @@ import {
 } from "@chakra-ui/react"
 
 export default function PostContainer(props) {
-    
     return (
-        <Grid m="3%" border="1px" borderColor="gray.300"  borderRadius="0.95em" >
+        <Box m="3%" border="1px" borderColor="gray.300"  borderRadius="0.95em" boxShadow="lg" >
             <Text margin="1%" fontSize="xs"> Posted by: {props.post.user.username}  </Text>
             <Center>
                 <Heading>{props.post.title}</Heading>
@@ -26,6 +24,6 @@ export default function PostContainer(props) {
                     more tags
                 </Box>
             </Stack>
-        </Grid>
+        </Box>
     )
 }

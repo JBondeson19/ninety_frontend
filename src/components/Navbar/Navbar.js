@@ -68,7 +68,11 @@ const Navbar = (props) => {
             </Link>
           </MenuItems>
         
-        <MenuItems><BsFillPersonFill /></MenuItems>
+        <MenuItems>
+          <Link to="/profile">
+            <BsFillPersonFill />
+          </Link>
+        </MenuItems>
 
         <MenuItems>
           <Link to="/post">

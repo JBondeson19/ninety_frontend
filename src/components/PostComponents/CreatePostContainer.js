@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import TagList from './TagList'
 import { 
     Input,
@@ -90,7 +90,7 @@ export default function CreatePostContainer(props) {
                             Nevermind
                         </Button>
                     <Spacer/>
-                        <Button type="submit" >
+                        <Button type="submit" onClick >
                                 Submit
                         </Button>
                     </Stack>
