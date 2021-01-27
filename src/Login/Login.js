@@ -66,6 +66,7 @@ class Login extends Component {
                         <Input 
                             placeholder="Email address" 
                             type="email" 
+                            borderRadius="1.5em"
                             onChange = {(event) => this.setState({ email: event.target.value }) }
                         />
                     </FormControl>
@@ -73,11 +74,12 @@ class Login extends Component {
                         <Input 
                             placeholder="password" 
                             type="password"
+                            borderRadius="1.5em"
                             onChange = {(event) => this.setState({ password: event.target.value }) }    
                         />
                     </FormControl>
                     <Center>
-                        <Button placeholder="submit" type="submit"> Submit </Button>
+                        <Button borderRadius="1.5em" placeholder="submit" type="submit"> Submit </Button>
                     </Center>
                 </form>
                 </Flex>

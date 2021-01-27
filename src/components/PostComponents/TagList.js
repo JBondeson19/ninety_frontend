@@ -5,7 +5,9 @@ import {
     List,
     ListItem,
     IconButton,
-    Input
+    Input,
+    Tag,
+    TagLabel
 } from "@chakra-ui/react";
 
 class TagList extends React.Component {

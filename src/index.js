@@ -9,17 +9,20 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-
+import "./index.css"
 
 ReactDOM.render(
+  <div className="Background">
+
   <BrowserRouter>
     <StrictMode>
       <ColorModeScript  
         initialColorMode={theme.config.initialColorMode}
       />
-      <App />
+      <App  />
     </StrictMode>
-  </BrowserRouter>,
+  </BrowserRouter>
+  </div>,
   document.getElementById('root')
 );
 

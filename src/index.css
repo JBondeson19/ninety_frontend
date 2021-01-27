@@ -1,0 +1,14 @@
+.Background {
+  height:10000px;
+  background-repeat: no-repeat;
+  background-image: url(./Ellipsis.png);
+  background-position:100% 95%;
+  background-attachment: fixed;
+}
+
+.Logo {
+  background-image: url(./Quotation.png);
+  background-repeat: no-repeat;
+  background-position: 16% 15%;
+  
+}

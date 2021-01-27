@@ -19,12 +19,15 @@ class AllPostsComponent extends React.Component {
       }))
     }
 
+    /* {this.props.profile ? <PostContainer post={posts.filter(post => {
+              post.user.id == post.user_id
+            })}/> : } */
+
     render() {
         return (
-           <GridItem rowSpan={4} colSpan={4} align="center" direction="column" >
-           {this.state.posts.map(posts =>
-            <PostContainer post={posts} />
-           )}
+           <GridItem rowSpan={12} colSpan={7} align="center" direction="column" >
+           {this.state.posts.slice(0).reverse().map(posts =>
+              <PostContainer post={posts} />)} 
            </GridItem>
         )
     }

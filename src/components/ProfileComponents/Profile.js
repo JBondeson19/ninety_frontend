@@ -12,8 +12,8 @@ import {
 
 export default function Profile() {
     return (
-        <GridItem rowSpan={3} colSpan={2} border="1px" bg="violet" align="center" mt="7%" borderRadius="0.95em">
-            <Heading m="3%" > Maggie123's Profile</Heading>
+        <GridItem rowSpan={1} colSpan={2} border="1px" bg="violet" align="center" mt="12%" borderRadius="0.95em">
+            <Heading m="5%" > Maggie123's Profile</Heading>
             <Stack align="center">
                 <Wrap>
                     <WrapItem>
