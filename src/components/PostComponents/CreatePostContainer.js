@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import TagList from './TagList'
 import { 
-    Input,
     Textarea,
     Box,
     Grid,
@@ -16,31 +15,31 @@ import {
 
 
 
-function CreatePostContainer(props) {
-
+function CreatePostContainer({userInfo}) {
+   
     // do your fetch request here 
     // I will need state management for anything that's getting submitted
-    let [title, setTitle] = useState("")
+
     let [content, setContent] = useState("")
 
     const history = useHistory();
- 
+    
+   
 
 
-    // let [tags, setTags] = useState([])
     
     function createPost(event) {
         event.preventDefault()
 
         let url = "http://localhost:3000/posts"
-
+        let user= `${userInfo.user.id}`
 
         let reqObj = {
             method: "POST",
             headers: { 'Content-Type': 'application/json', Accept: "application/json"},
             body: JSON.stringify({
                 content: content,
-                user_id: 5
+                user_id: user
             })
         }
 
@@ -78,7 +77,7 @@ function CreatePostContainer(props) {
                         }
                         value={content}
                     />
-                    <TagList />
+                    
                 </FormControl>
                     <Spacer/>
                         <Stack direction={['column', 'row', 'row']} m="35px" >

@@ -5,10 +5,11 @@ import {
 } from "@chakra-ui/react";
 
 
-class AllPostsComponent extends React.Component {
+
+class UserPostsComponent extends React.Component {
 
    state={
-     posts: [],
+     posts: []
    }
 
     componentDidMount(){
@@ -19,16 +20,18 @@ class AllPostsComponent extends React.Component {
       }))
     }
 
+        
+        
+        render() {
+          
+        const userPosts = this.state.posts.filter(posts => posts.user_id === this.props.user.id)
 
+        
 
-    render() {
         return (
            <GridItem rowSpan={12} colSpan={7} align="center" direction="column" >
-           {this.state.posts.slice(0).reverse().map(posts =>
-              <PostContainer 
-                post={posts} 
-
-              />)} 
+           {userPosts.slice(0).reverse().map(posts =>
+            <PostContainer post={posts} />)}
            </GridItem>
         )
     }
@@ -36,4 +39,4 @@ class AllPostsComponent extends React.Component {
 
 
 
-export default AllPostsComponent
+export default UserPostsComponent

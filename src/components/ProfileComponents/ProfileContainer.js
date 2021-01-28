@@ -6,15 +6,17 @@ import {
     Center,
     Text
 } from "@chakra-ui/react";
-import AllPostsComponent from "../PostComponents/AllPostsComponent"
+import UserPostsComponent from "../PostComponents/UserPostsComponent"
 
-export default function ProfileContainer() {
+export default function ProfileContainer(props) {
     
+    
+
     return (
-        <Box m="0.5%">
-            <Center bg="green.200" h="3%" w="100%" > 
+        <Box m="2%">
+            <Center h="3%" w="100%" > 
                 <Text fontSize="5xl">
-                    Maggie123's Page
+                  {props.user.user.username}'s Page
                 </Text>
             </Center>
             <Grid 
@@ -23,8 +25,8 @@ export default function ProfileContainer() {
                 gap={2}
                 mt="2%"
             >
-                <Profile />
-                <AllPostsComponent profile={true} />
+                <Profile user={props.user} />
+                <UserPostsComponent profile={true} user={props.user.user}/>
             </Grid>
         </Box>
     )
