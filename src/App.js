@@ -85,7 +85,7 @@ class App extends Component {
             <Route path="/profile" >
                 <ProfileContainer user={this.state.newUser}/>
             </Route>
-            <Route exact path="/login">
+            <Route path="/login">
                 { this.state.isLoggedIn ? <Redirect to="/home"/> : <Login logIn={this.handleLogin} />}
             </Route>
           </Switch>

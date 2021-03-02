@@ -10,14 +10,15 @@ import {
 } from "@chakra-ui/react"
 
 export default function Profile(props) {
-    
+   
     return (
-        <GridItem rowSpan={1} colSpan={2} border="1px" bg="violet" align="center" mt="12%" borderRadius="0.5em">
+       
+        <GridItem rowSpan={1} colSpan={2} border="1px" bg="yellow.600" align="center" mt="12%" borderRadius="0.5em">
             <Heading m="5%" > Profile</Heading>
             <Stack align="center">
                 <Wrap>
                     <WrapItem>
-                            <Avatar size="2xl" name="Maggie" src="https://i.imgur.com/EAfVzSY.jpg" />
+                            <Avatar size="2xl" name={props.user.user.username} />
                     </WrapItem>
                 </Wrap>
 

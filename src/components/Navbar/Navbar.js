@@ -9,6 +9,7 @@ import {
     InputGroup,
     InputRightElement,
     Input,
+    Button,
     Divider
   } from "@chakra-ui/react"
 import { VscMenu } from "react-icons/vsc";
@@ -18,12 +19,19 @@ import {ImFileText2} from "react-icons/im"
 import { BsPeopleFill } from "react-icons/bs";
 import { MdMailOutline } from "react-icons/md"
 import { BsSearch } from "react-icons/bs";
+import {FiLogOut, FiLogIn} from "react-icons/fi"
+
 
 const MenuItems = ({ children }) => (
     <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
       {children}
     </Text>
   );
+
+const logOut = (event) => {
+  event.preventDefault();
+  localStorage.clear();
+}
 
 const Navbar = (props) => {
     const [show, setShow] = React.useState(false);
@@ -61,7 +69,11 @@ const Navbar = (props) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
         >
-  
+          <MenuItems>
+          <Link to="/login">
+            <FiLogIn/>
+          </Link>
+        </MenuItems>
           <MenuItems>
             <Link to="/home">
               <RiHome2Line/>
@@ -82,6 +94,7 @@ const Navbar = (props) => {
         
         <MenuItems><BsPeopleFill /></MenuItems>
         <MenuItems><MdMailOutline /></MenuItems>
+        
         </Stack>
       {/* </Box> */}
 
@@ -95,10 +108,12 @@ const Navbar = (props) => {
       />
       <Input placeholder="Search" borderRadius="1.5em"/>
       </InputGroup>
-
       
       </Box>
       <Divider />
+        <Button onClick={logOut} >
+            <FiLogOut />
+        </Button>
     </Flex>
   );
 }

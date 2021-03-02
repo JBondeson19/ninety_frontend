@@ -26,6 +26,7 @@ class AllPostsComponent extends React.Component {
            <GridItem rowSpan={12} colSpan={7} align="center" direction="column" >
            {this.state.posts.slice(0).reverse().map(posts =>
               <PostContainer 
+                key={posts.id}
                 post={posts} 
 
               />)} 
