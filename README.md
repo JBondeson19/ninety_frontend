@@ -1,16 +1,32 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+#Ninety
 
-In the project directory, you can run:
+Ninety is a single page web app designed to motivate creators with writer's block. Get your hands and brain moving with randomly generated writing prompts that you can then share and get feedback on from other users. 
 
-### `yarn start`
+This is the React frontend which uses Chakra UI as a JS framework.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation 
+ 
+ 1.) Check out the repository 
+ `git clone git@github.com:JBondeson19/ninety_frontend.git`
+
+ 2.) Download dependencies
+ `npm install`
+
+ 3.) Boot it up!
+ `npm start`
+
+ 4.) Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+
+ * If all goes well you should be running `ninety_backend` on [http://localhost:3000](http://localhost:3000) while running `ninety_frontend` on 
+[http://localhost:3001](http://localhost:3001) 
+
+
 
 ### `yarn test`
 
