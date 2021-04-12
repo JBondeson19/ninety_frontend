@@ -20,6 +20,7 @@ import { BsPeopleFill } from "react-icons/bs";
 import { MdMailOutline } from "react-icons/md"
 import { BsSearch } from "react-icons/bs";
 import {FiLogOut, FiLogIn} from "react-icons/fi"
+import "./Navbar.css"
 
 
 const MenuItems = ({ children }) => (
@@ -111,7 +112,7 @@ const Navbar = (props) => {
       
       </Box>
       <Divider />
-        <Button onClick={logOut} >
+        <Button onClick={logOut} id="logOut">
             <FiLogOut />
         </Button>
     </Flex>

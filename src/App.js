@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import {
   Switch,
   Redirect,
@@ -11,8 +10,6 @@ import {
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import axios from "axios"
-
 import CreatePostContainer from "../src/components/PostComponents/CreatePostContainer"
 import ProfileContainer from "./components/ProfileComponents/ProfileContainer"
 import Navbar from './components/Navbar/Navbar';
@@ -29,7 +26,6 @@ class App extends Component {
     newUser: []
   }
   componentDidMount() {
-    // this.loginStatus()
     this.setState({
       isLoggedIn: !!localStorage.getItem("isLoggedIn")
     })
@@ -41,17 +37,6 @@ class App extends Component {
     }))
   }
 
-  loginStatus = () => {
-    axios.get('http://localhost:3000/logged_in')    
-    .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response)
-      } else {
-        this.handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
-  };
 
   handleLogin = (data) => {
     localStorage.setItem("user_id", data.user.id)

@@ -1,5 +1,4 @@
 import React from 'react'
-import TagList from "./TagList"
 import { 
     Box,
     Container,

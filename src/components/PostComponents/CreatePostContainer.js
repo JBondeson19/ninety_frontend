@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
-import { useHistory } from "react-router-dom";
 import WritingPrompts from "../WritingPrompts"
-import TagList from './TagList'
 import { 
     Textarea,
     Box,
@@ -22,25 +20,8 @@ function CreatePostContainer({userInfo}) {
     // I will need state management for anything that's getting submitted
 
     let [content, setContent] = useState("")
-    let [tags, setTags] = useState("")
 
     let randomElement = WritingPrompts[Math.floor(Math.random() * WritingPrompts.length)]
-
-    const history = useHistory();
-   
-
-    const onAddTag = tag => {
-        setTags([...tags, tag]);
-      };
-    
-    const onKeyUp = e => {
-    if (e.key === "," || e.key === "Enter") {
-        let input = e.target.value.trim().split(",");
-        if (input.length === 0 || input[0] === "") return;
-        onAddTag(input);
-        e.target.value = null;
-    }
-    };
 
     
     function createPost(event) {
@@ -62,7 +43,8 @@ function CreatePostContainer({userInfo}) {
         .then(res => res.json())
         .then(post => console.log(post))
 
-        history.push("/home")
+        window.location.replace('/home')
+
     }
 
   
