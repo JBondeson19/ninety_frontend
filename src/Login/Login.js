@@ -13,42 +13,33 @@ import {
 class Login extends Component {
 
        state = {
-        username: "",
         email: "",
         password: ""
     }
 
+
+    // callbackMethodHere = (userInfo) => {
+    //     //parse through user info headers
+
+    // }
     handleOnSubmit = (event) => {
         event.preventDefault()
-
-        let user = {
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password
-        }
-        let reqObj = {
+        
+        fetch('http://localhost:3000/login', {
             method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({user})
-        }
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json'
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password
+            })
+        })
+        .then(res => res.json())
+        .then((res) => console.log(res))
+}
 
-        fetch('http://localhost:3000/login', reqObj)
-        .then(res => res.json()).then(userData => {
-            localStorage.setItem("isLoggedIn", true)
-            this.props.logIn(userData)
-            }
-        )
-    }
-
-
-    
-    // redirect = () => {
-    //   this.props.history.push('/home')
-    // }
-
-
-    
-    
     render() {
         return (
         <Box>
@@ -58,7 +49,6 @@ class Login extends Component {
                 </Heading>
             </Center>
            
-
             <Center>
                 <Flex direction="column" width="50vh" height="30vh" m="2%">
                 <form  onSubmit={(event) => this.handleOnSubmit(event)} >

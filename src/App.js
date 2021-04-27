@@ -24,49 +24,12 @@ class App extends Component {
   
 
   state = {
-    isLoggedIn: false,
     user: {},
-    newUser: []
-  }
-  componentDidMount() {
-    // this.loginStatus()
-    this.setState({
-      isLoggedIn: !!localStorage.getItem("isLoggedIn")
-    })
-
-    fetch(`http://localhost:3000/users/${user_id}`)
-    .then(res =>res.json())
-    .then(data => this.setState({
-      newUser: data
-    }))
   }
 
-  loginStatus = () => {
-    axios.get('http://localhost:3000/logged_in')    
-    .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response)
-      } else {
-        this.handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
-  };
 
-  handleLogin = (data) => {
-    localStorage.setItem("user_id", data.user.id)
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
-  }
 
-  handleLogout = () => {
-    this.setState({
-    isLoggedIn: false,
-    user: {}
-    })
-  }
+
 
   render() {
     return (
@@ -77,16 +40,16 @@ class App extends Component {
         </Grid>
           <Switch>
             <Route path="/home">
-                <AllPostsComponent userInfo={this.state.newUser} />
+                <AllPostsComponent userInfo={this.state.user} />
             </Route>
             <Route path="/post">
-                <CreatePostContainer userInfo={this.state.newUser} />
+                <CreatePostContainer userInfo={this.state.user} />
             </Route>
             <Route path="/profile" >
-                <ProfileContainer user={this.state.newUser}/>
+                <ProfileContainer user={this.state.user}/>
             </Route>
             <Route exact path="/login">
-                { this.state.isLoggedIn ? <Redirect to="/home"/> : <Login logIn={this.handleLogin} />}
+               <Login />
             </Route>
           </Switch>
       </ChakraProvider>
