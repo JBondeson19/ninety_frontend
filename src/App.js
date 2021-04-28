@@ -13,10 +13,10 @@ import {
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import axios from "axios"
 
-import CreatePostContainer from "../src/components/PostComponents/CreatePostContainer"
+// import CreatePostContainer from "../src/components/PostComponents/CreatePostContainer"
 import ProfileContainer from "./components/ProfileComponents/ProfileContainer"
 import Navbar from './components/Navbar/Navbar';
-import AllPostsComponent from './components/PostComponents/AllPostsComponent';
+// import AllPostsComponent from './components/PostComponents/AllPostsComponent';
 import Login from './Login/Login';
 
 const user_id = localStorage.getItem("user_id")
@@ -28,6 +28,12 @@ class App extends Component {
   }
 
 
+  setUser = (userInfo) => {
+    this.setState({
+      user: userInfo
+    })
+  }
+  //callback for userInfo from Login
 
 
 
@@ -39,17 +45,17 @@ class App extends Component {
           <Navbar />
         </Grid>
           <Switch>
-            <Route path="/home">
-                <AllPostsComponent userInfo={this.state.user} />
-            </Route>
-            <Route path="/post">
+            {/* <Route path="/home">
+                <AllPostsComponent />
+            </Route> */}
+            {/* <Route path="/post">
                 <CreatePostContainer userInfo={this.state.user} />
-            </Route>
+            </Route> */}
             <Route path="/profile" >
                 <ProfileContainer user={this.state.user}/>
             </Route>
             <Route exact path="/login">
-               <Login />
+               <Login setUser={this.setUser}/>
             </Route>
           </Switch>
       </ChakraProvider>

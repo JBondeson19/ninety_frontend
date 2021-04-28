@@ -18,10 +18,7 @@ class Login extends Component {
     }
 
 
-    // callbackMethodHere = (userInfo) => {
-    //     //parse through user info headers
 
-    // }
     handleOnSubmit = (event) => {
         event.preventDefault()
         
@@ -37,7 +34,9 @@ class Login extends Component {
             })
         })
         .then(res => res.json())
-        .then((res) => console.log(res))
+        .then((res) => this.props.setUser(res.user))
+
+        // window.location.replace("/profile")
 }
 
     render() {

@@ -22,7 +22,7 @@ export default function Profile(props) {
                 </Wrap>
 
                 <Container align="left">
-                  {props.user.user.bio}
+                  {/* //user bio */}
                 </Container>
             </Stack>
         </GridItem>
