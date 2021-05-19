@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import {
   Switch,
-  Redirect,
   Route
 } from "react-router-dom"
 import {
@@ -11,13 +10,11 @@ import {
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import axios from "axios"
-
 // import CreatePostContainer from "../src/components/PostComponents/CreatePostContainer"
 import ProfileContainer from "./components/ProfileComponents/ProfileContainer"
 import Navbar from './components/Navbar/Navbar';
 import AllPostsComponent from './components/PostComponents/AllPostsComponent';
-import Login from './Login/Login';
+
 
 class App extends Component {
   
@@ -40,7 +37,7 @@ class App extends Component {
       <ChakraProvider theme={theme}>
         <Grid minH="40vh" p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
-          <Navbar />
+            <Navbar />
         </Grid>
           <Switch>
             <Route path="/home" render={()=> <AllPostsComponent />} />

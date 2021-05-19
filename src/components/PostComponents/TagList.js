@@ -29,10 +29,7 @@ class TagList extends React.Component {
                         #hashtags go here <IconButton h="5px" w="5px" icon={<VscRemove/>} />
                     </ListItem>
                     <ListItem display="inline-block"  m="0 5px" >
-                        <Input placeholder="#hashtag" variant="unstyled" w="85%" onChange={(event) => {
-                            (this.props.tag: event.target.value)
-                        }}
-                        />
+                        
                     </ListItem>
                     
                 </List>

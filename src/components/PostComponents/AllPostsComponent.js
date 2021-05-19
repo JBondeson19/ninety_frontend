@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import PostContainer from "./PostContainer"
 import { 
-    GridItem,
+    Grid, GridItem,
 } from "@chakra-ui/react";
 
 
@@ -34,29 +34,22 @@ const AllPostsComponent = () => {
         });
    }, []);
 
-  //  componentDidMount(){
-  //   fetch("http://localhost:3000/posts")
-  //   .then(res => res.json())
-  //   .then(postsArray => this.setState({
-  //     posts: postsArray
-  //   }))
-  // }
 
-    
-
-
-
-    
+   
         return (
-           <GridItem rowSpan={12} colSpan={7} align="center" direction="column" >
-             {console.log(loadedPosts)}
-             
-           {/* {loadedPosts.slice(0).reverse().map(posts =>
-              <PostContainer 
-                post={posts} 
+           <Grid rowSpan={12} colSpan={7} align="center" direction="column" >
+             <GridItem position="relative">
 
-              />)}  */}
-           </GridItem>
+             
+              {loadedPosts.slice(0).reverse().map(post =>
+                  <PostContainer 
+                    post={post} 
+                    key={post.id}
+                  />
+                )
+              } 
+              </GridItem>
+           </Grid>
         )
     
 }

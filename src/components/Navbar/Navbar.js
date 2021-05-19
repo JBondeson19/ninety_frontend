@@ -25,9 +25,8 @@ const MenuItems = ({ children }) => (
     </Text>
   );
 
-const Navbar = (props) => {
-    const [show, setShow] = React.useState(false);
-    const handleToggle = () => setShow(!show);
+const Navbar = () => {
+
   return (
     <Flex
       as="nav"
@@ -35,7 +34,6 @@ const Navbar = (props) => {
       justify="space-between"
       wrap="wrap"
       padding="1rem"
-      {...props}
     >
       <Flex align="center" mr={5}>
         <Heading p="5px">"</Heading>
@@ -44,15 +42,10 @@ const Navbar = (props) => {
         </Heading>
       </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+      <Box display={{ base: "block", md: "none" }}>
           <VscMenu/>  
       </Box>
 
-      {/* <Box
-        display={{ sm: show ? "block" : "none", md: "flex" }}
-        width={{ sm: "full", md: "auto" }}
-        alignItems="center"
-      > */}
       <Stack
         flexGrow={1}
         spacing={6}
@@ -61,7 +54,6 @@ const Navbar = (props) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
         >
-  
           <MenuItems>
             <Link to="/home">
               <RiHome2Line/>
@@ -85,10 +77,7 @@ const Navbar = (props) => {
         </Stack>
       {/* </Box> */}
 
-      <Box
-        display={{ sm: show ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
+      <Box>
       <InputGroup>
       <InputRightElement
         children={<BsSearch />}
