@@ -10,13 +10,13 @@ import {
 
 export default function ProfileContainer(props) {
     console.log("User Info")
-    console.log(props)
+    console.log(props.user.username)
 
     return (
         <Box m="2%">
             <Center h="3%" w="100%" > 
                 <Text fontSize="5xl">
-                 {props.user.usernames}'s Page
+                 {props.user.username}'s Page
                 </Text>
             </Center>
             <Grid 
