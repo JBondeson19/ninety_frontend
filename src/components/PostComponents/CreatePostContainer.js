@@ -15,40 +15,40 @@ import {
 
 
 
-function CreatePostContainer({userInfo}) {
+const CreatePostContainer = () => {
    
     // do your fetch request here 
     // I will need state management for anything that's getting submitted
 
     let [content, setContent] = useState("")
 
-    const history = useHistory();
+    // const history = useHistory();
     
    
 
 
     
-    function createPost(event) {
-        event.preventDefault()
+    // function createPost(event) {
+    //     event.preventDefault()
 
-        let url = "http://localhost:3000/posts"
-        let user= `${userInfo.user.id}`
+    //     let url = "http://localhost:3000/posts"
+    //     let user= `${userInfo.user.id}`
 
-        let reqObj = {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json', Accept: "application/json"},
-            body: JSON.stringify({
-                content: content,
-                user_id: user
-            })
-        }
+    //     let reqObj = {
+    //         method: "POST",
+    //         headers: { 'Content-Type': 'application/json', Accept: "application/json"},
+    //         body: JSON.stringify({
+    //             content: content,
+    //             user_id: user
+    //         })
+    //     }
 
-        fetch(url, reqObj)
-        .then(res => res.json())
-        .then(post => console.log(post))
+    //     fetch(url, reqObj)
+    //     .then(res => res.json())
+    //     .then(post => console.log(post))
 
-        history.push("/home")
-    }
+    //     history.push("/home")
+    // }
 
   
       
@@ -60,11 +60,8 @@ function CreatePostContainer({userInfo}) {
         <Box align="center" >
             <Heading m="2%"> New Post </Heading>
         <Grid direction="column" w="60%" border="1px" borderColor="gray.300"  borderRadius="0.95em" > 
-                <form onSubmit={(event) =>
-                createPost(event)}>
+                <form onSubmit={(event) =>createPost(event)}>
                 <FormControl>
-
-                    
                     <Textarea 
                         align="center" 
                         borderColor="gray.400" 
@@ -77,14 +74,17 @@ function CreatePostContainer({userInfo}) {
                         }
                         value={content}
                     />
-                    
+        
                 </FormControl>
                     <Spacer/>
-                        <Stack direction={['column', 'row', 'row']} m="35px" >
+                        <Stack 
+                            direction={['column', 'row', 'row']} 
+                            m="35px" 
+                        >
                             <Button>
                                 Nevermind
                             </Button>
-                        <Spacer/>
+                                <Spacer/>
                             <Button type="submit" >
                                     Submit
                             </Button>
