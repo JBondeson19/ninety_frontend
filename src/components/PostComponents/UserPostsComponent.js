@@ -1,41 +1,52 @@
 import React from 'react'
-import PostContainer from "./PostContainer"
 import { 
     GridItem,
+    Box,
+    Text,
+    Stack,
+    Container
 } from "@chakra-ui/react";
 
 
+const UserPostsComponent = (props) =>  {
 
-class UserPostsComponent extends React.Component {
+  console.log("User", props.user.posts)
 
-   state={
-     posts: []
-   }
 
-    componentDidMount(){
-      fetch("http://localhost:3000/posts")
-      .then(res => res.json())
-      .then(postsArray => this.setState({
-        posts: postsArray
-      }))
-    }
 
+
+
+
+  
+   const userPosts = props.user.posts
+
+   userPosts.reverse().slice().map(x => console.log(x));
+
+    return (
+        <GridItem rowSpan={12} colSpan={7} align="center" direction="column" >
+         <Box>
+                {userPosts.map(post=>
+                    <Box className="Logo" m="3%" border="1px" borderColor="gray.300"   borderRadius="0.5em" w="75%" boxShadow="lg" key={post.id} >
+                        <Text margin="2%" fontSize="xs"> Posted by: {props.user.username}</Text>
+                        <Stack margin="5%">
+                         <Container  w="75%" align="left">{post.content}</Container> 
+                         <Box color="gray.300" p="1%" >
+                             tags
+                             tags 
+                             more tags
+                         </Box>
+                     </Stack>
+                    </Box>
+                    )
+                }
+            </Box>
+        </GridItem>
+    )
         
         
-        render() {
           
-        const userPosts = this.state.posts.filter(posts => posts.user_id === this.props.user.id)
-
-        
-
-        return (
-           <GridItem rowSpan={12} colSpan={7} align="center" direction="column" >
-           {userPosts.slice(0).reverse().map(posts =>
-            <PostContainer post={posts} />)}
-           </GridItem>
-        )
-    }
 }
+
 
 
 
