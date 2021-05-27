@@ -1,38 +1,23 @@
-import React, {useState, useEffect} from 'react'
+
 import PostContainer from "./PostContainer"
 import { 
-    Grid, GridItem,
+    Grid, GridItem, Text
 } from "@chakra-ui/react";
+import useFetch from '../../useFetch';
 
 
 const AllPostsComponent = () => {
-  
-   const [loadedPosts, setLoadedPosts] = useState(null);
 
-
-   useEffect(() => {
-      fetch("http://localhost:3000/api/v1/posts")
-        .then(res =>{ 
-          if (!res.ok){
-            throw Error ("could not fetch data for that resource")
-          }
-           return res.json();
-          })
-        .then(data => {
-          const posts = data;
-          setLoadedPosts(posts);
-          })
-        .catch((err)=>{console.log(err.message)})
-   }, []);
+  const {data, isLoading, error} = useFetch('http://localhost:3000/api/v1/posts')
   
 
 
         return (
            <Grid rowSpan={12} colSpan={7} align="center" direction="column" >
              <GridItem position="relative">
-              {loadedPosts && <PostContainer 
-                  posts={loadedPosts} 
-                />}
+               {error && <Text fontSize="6xl">{error}</Text>}
+               {isLoading && <Text fontSize='6xl'>Loading...</Text>}
+              {data && <PostContainer posts={data} />}
               </GridItem>
            </Grid>
         )

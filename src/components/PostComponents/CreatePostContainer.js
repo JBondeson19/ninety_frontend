@@ -15,16 +15,17 @@ import {
 
 const CreatePostContainer = (props) => {
    
-    // do your fetch request here 
-    // I will need state management for anything that's getting submitted
+
     let [content, setContent] = useState("")
+    const [isLoading, setIsLoading] = useState(false )
+
+    let history = useHistory(); 
 
   
     const handleSubmit = (event) =>{
         event.preventDefault(); 
 
-        const post = {content};
-
+        setIsLoading(true);
 
         fetch("http://localhost:3000/api/v1/posts", {
             method: "POST",
@@ -37,9 +38,12 @@ const CreatePostContainer = (props) => {
                 content: content
             })
         })
-        .then(res => res.json())
-        .then(res => console.log(res))
+        .then(() => {
+            console.log("new post added")
+            setIsLoading(false);
+        })
 
+        history.push('/')
     }
       
     
@@ -72,9 +76,8 @@ const CreatePostContainer = (props) => {
                         Nevermind
                     </Button>
                         <Spacer/>
-                    <Button type="submit" >
-                            Submit
-                    </Button>
+                   {!isLoading && <Button type="submit" >Submit</Button>}
+                   {isLoading && <Button disabled>Adding...</Button>}
                 </Stack>
                     </form>
         </Grid>
