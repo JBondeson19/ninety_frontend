@@ -41,9 +41,9 @@ const CreatePostContainer = (props) => {
         .then(() => {
             console.log("new post added")
             setIsLoading(false);
+            history.push('/home')
         })
 
-        history.push('/')
     }
       
     

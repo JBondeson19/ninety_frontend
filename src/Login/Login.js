@@ -15,6 +15,8 @@ const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false)
+   
 
     const history = useHistory();
 
@@ -22,6 +24,8 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        setIsLoading(true);
 
         const loggedUser = {email, password}
 
@@ -35,10 +39,11 @@ const Login = (props) => {
         })
         .then(res => res.json())
         .then((res) => {
-            console.log('handleSubmit',res.user, res.token) || props.setUser(res.user, res.token)
+            setIsLoading(false);
+           props.setUser(res.user, res.token)
+           history.push('/home') 
         })
 
-        history.push('/home') 
     }
 
     

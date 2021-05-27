@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react"
 
 export default function Profile(props) {
+
+    //do a fetch here so you can load updated posts in state related to user's id. 
     
     return (
         <GridItem rowSpan={1} colSpan={2} border="1px" bg="violet" align="center" mt="12%" borderRadius="0.5em">
